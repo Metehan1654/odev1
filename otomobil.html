@@ -20,11 +20,9 @@
 </head>
 <body class="bg-gray-100 font-sans">
 
-    <!-- ÜST MENÜ (Otomobil sayfası açık olduğu için Otomobil linki gizli) -->
     <nav class="bg-blue-600 text-white p-4 shadow-md">
         <div class="container mx-auto flex gap-4 justify-center flex-wrap">
             <a href="index.html" class="hover:text-gray-300 font-bold">Ana Sayfa</a>
-            <!-- Otomobil linki burada gizlendi -->
             <a href="hayvan.html" class="hover:text-gray-300">Hayvan</a>
             <a href="cicek.html" class="hover:text-gray-300">Çiçek</a>
             <a href="spor.html" class="hover:text-gray-300">Spor</a>
@@ -34,33 +32,12 @@
     <div class="container mx-auto p-6 text-center">
         <h2 class="text-3xl font-bold mb-6 text-gray-800">Otomobil Galerisi</h2>
         <div class="grid grid-cols-1 md:grid-cols-4 gap-4">
-            <img src="Ranger.jpg" title="Ford Ranger" onclick="resmiBuyut(this.src)" class="galeri-resim" alt="Ford Ranger">
-            <img src="Bugatti.jpg" title="Bugatti Chiron" onclick="resmiBuyut(this.src)" class="galeri-resim" alt="Bugatti Chiron">
-            <img src="Mini.jpg" title="Mini Cooper" onclick="resmiBuyut(this.src)" class="galeri-resim" alt="Mini Cooper">
-            <img src="Challenger.jpg" title="Dodge Challenger" onclick="resmiBuyut(this.src)" class="galeri-resim" alt="Dodge Challenger">
+            <a href="Ranger.jpg" target="_blank"><img src="Ranger.jpg" title="Ford Ranger" class="galeri-resim" alt="Ford Ranger"></a>
+            <a href="Bugatti.jpg" target="_blank"><img src="Bugatti.jpg" title="Bugatti Chiron" class="galeri-resim" alt="Bugatti Chiron"></a>
+            <a href="Mini.jpg" target="_blank"><img src="Mini.jpg" title="Mini Cooper" class="galeri-resim" alt="Mini Cooper"></a>
+            <a href="Challenger.jpg" target="_blank"><img src="Challenger.jpg" title="Dodge Challenger" class="galeri-resim" alt="Dodge Challenger"></a>
         </div>
     </div>
 
-    <!-- LIGHTBOX -->
-    <div id="lightbox" class="fixed inset-0 bg-black bg-opacity-90 hidden flex justify-center items-center z-50">
-        <span class="absolute top-4 right-6 text-white text-4xl cursor-pointer" onclick="resmiKapat()">&times;</span>
-        <img id="buyukResim" class="max-w-full max-h-[90vh] rounded shadow-lg">
-    </div>
-
-    <script>
-        function resmiBuyut(src) {
-            document.getElementById('buyukResim').src = src;
-            document.getElementById('lightbox').classList.remove('hidden');
-        }
-        function resmiKapat() {
-            document.getElementById('lightbox').classList.add('hidden');
-        }
-        document.getElementById('lightbox').addEventListener('click', function(e) {
-            if(e.target === this) { resmiKapat(); }
-        });
-        document.addEventListener('keydown', function(e) {
-            if (e.key === 'Escape') { resmiKapat(); }
-        });
-    </script>
 </body>
 </html>
