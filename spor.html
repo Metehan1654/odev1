@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+<html lang="tr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Spor Galerisi</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <style>
+        .galeri-resim {
+            height: 150px !important;
+            width: 100%;
+            object-fit: cover;
+            object-position: center center;
+            border-radius: 0.5rem;
+            cursor: pointer;
+            transition: opacity 0.3s;
+        }
+        .galeri-resim:hover { opacity: 0.8; }
+    </style>
+</head>
+<body class="bg-gray-100 font-sans">
+
+    <!-- ÜST MENÜ (Spor sayfası açık olduğu için Spor linki gizli) -->
+    <nav class="bg-blue-600 text-white p-4 shadow-md">
+        <div class="container mx-auto flex gap-4 justify-center flex-wrap">
+            <a href="index.html" class="hover:text-gray-300 font-bold">Ana Sayfa</a>
+            <a href="otomobil.html" class="hover:text-gray-300">Otomobil</a>
+            <a href="hayvan.html" class="hover:text-gray-300">Hayvan</a>
+            <a href="cicek.html" class="hover:text-gray-300">Çiçek</a>
+            <!-- Spor linki burada gizlendi -->
+        </div>
+    </nav>
+
+    <div class="container mx-auto p-6 text-center">
+        <h2 class="text-3xl font-bold mb-6 text-gray-800">Spor Galerisi</h2>
+        <div class="grid grid-cols-1 md:grid-cols-4 gap-4">
+            <img src="basketbol.jpg" title="Basketbol" onclick="resmiBuyut(this.src)" class="galeri-resim" alt="Basketbol">
+            <img src="yuzme.jpg" title="Yüzme Havuzu" onclick="resmiBuyut(this.src)" class="galeri-resim" alt="Yüzme">
+            <img src="voleybol.jpg" title="Voleybol Maçı" onclick="resmiBuyut(this.src)" class="galeri-resim" alt="Voleybol">
+            <img src="Metehan.jpg" title="Kaleci Kurtarışı" onclick="resmiBuyut(this.src)" class="galeri-resim" alt="Metehan Kaleci">
+        </div>
+    </div>
+
+    <!-- LIGHTBOX -->
+    <div id="lightbox" class="fixed inset-0 bg-black bg-opacity-90 hidden flex justify-center items-center z-50">
+        <span class="absolute top-4 right-6 text-white text-4xl cursor-pointer" onclick="resmiKapat()">&times;</span>
+        <img id="buyukResim" class="max-w-full max-h-[90vh] rounded shadow-lg">
+    </div>
+
+    <script>
+        function resmiBuyut(src) {
+            document.getElementById('buyukResim').src = src;
+            document.getElementById('lightbox').classList.remove('hidden');
+        }
+        function resmiKapat() {
+            document.getElementById('lightbox').classList.add('hidden');
+        }
+        document.getElementById('lightbox').addEventListener('click', function(e) {
+            if(e.target === this) { resmiKapat(); }
+        });
+        document.addEventListener('keydown', function(e) {
+            if (e.key === 'Escape') { resmiKapat(); }
+        });
+    </script>
+</body>
+</html>
